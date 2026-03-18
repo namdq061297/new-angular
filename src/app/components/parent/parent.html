@@ -1,0 +1,15 @@
+<p>parent works!</p>
+<button (click)="updateUser()">update user</button>
+<br />
+<app-child
+  [userName]="userName"
+  (passString)="showString($event)"
+  (increase)="handleIncrease()"
+  (decrease)="handleDecrease()"
+  [age]="age"
+>
+  <div #contentWrapper>Content projected from parent to child...</div>
+</app-child>
+<h2>Count: {{ count }}</h2>
+<h2>CountRx: {{ countRx }}</h2>
+<h2>CountSync: {{ count$ | async }}</h2>

@@ -1,0 +1,14 @@
+<p>child works!</p>
+<p>user name: {{ userName }}</p>
+<p>user age: {{ age() }}</p>
+<div #wrapper>
+    <ng-content></ng-content>
+</div>
+<button (click)="onClick()">+1</button>
+<button (click)="onClickDecrease()">-1</button>
+
+<button (click)="increaseRx()">+1Rx</button>
+<button (click)="decreaseRx()">-1Rx</button>
+
+<button (click)="passStringToParent('alo alo')">Pass String</button>
+
