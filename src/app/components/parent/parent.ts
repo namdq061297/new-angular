@@ -24,6 +24,10 @@ export class Parent implements OnInit {
 
   showString(value: string) {
     console.log('Received string from child:', value);}
+  
+  generateRandom(num: number) {
+    return Math.floor(Math.random() * num);
+  }
 
   ngOnInit() {
     this.counterService.count$.subscribe(value => {

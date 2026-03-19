@@ -3,12 +3,13 @@ import { RouterOutlet } from '@angular/router';
 import { Test } from './test/test';
 import { Parent } from './components/parent/parent';
 import { Child } from './components/child/child';
+import { AdBannerComponent } from './ads/ad-banner.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.css',
-  imports: [Parent],
+  imports: [Parent, AdBannerComponent],
 })
 export class App {
   protected readonly title = signal('new-angular');

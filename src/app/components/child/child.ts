@@ -18,7 +18,7 @@ import {
   type OnInit,
   type SimpleChanges,
 } from '@angular/core';
-import  { CounterService } from '../count.service';
+import { CounterService } from '../count.service';
 
 @Component({
   selector: 'app-child',
@@ -28,16 +28,15 @@ import  { CounterService } from '../count.service';
 })
 export class Child
   implements
-    OnChanges,
-    OnInit,
-    DoCheck,
-    AfterContentInit,
-    AfterContentChecked,
-    AfterViewInit,
-    AfterViewChecked,
-    OnDestroy
-{
- 
+  OnChanges,
+  OnInit,
+  DoCheck,
+  AfterContentInit,
+  AfterContentChecked,
+  AfterViewInit,
+  AfterViewChecked,
+  OnDestroy {
+
   @Input() userName = '';
   @ViewChild('wrapper') wrapper: ElementRef | undefined;
   @ContentChild('contentWrapper') content: ElementRef | undefined;
@@ -45,10 +44,19 @@ export class Child
   @Output() decrease = new EventEmitter<void>();
   @Output() passString = new EventEmitter<string>();
 
-   age = input.required<number>(); // bắt buộc
-   doubleAge = computed(() => this.age() * 2);
-  
-   constructor(private counterService: CounterService) {}
+  age = input.required<number>(); // bắt buộc
+  doubleAge = computed(() => this.age() * 2);
+
+  randomNumber = input<(max: number) => number>();
+
+  onRandomNumber() {
+    const fn = this.randomNumber();
+    if (fn) {
+      console.log(fn(10)); // Example usage, passing a max value
+    }
+  }
+
+  constructor(private counterService: CounterService) { }
 
   increaseRx() {
     this.counterService.increase();
